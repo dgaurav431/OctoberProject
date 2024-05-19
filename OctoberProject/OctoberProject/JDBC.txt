@@ -1,0 +1,35 @@
+What is JDBC ?
+ It is a J2EE API, which is used to connect to any data base from the java code.
+
+There are 2 types of database 
+1. SQL Database 
+ Data will be stored in form of table 
+EG : Mysql , MsSql , Oracle 11 g , DB2 ,
+
+2. No SQL Database 
+ Data will be stored in the from JSON format
+EG : Mango db , Casandra , NoSQL 
+
+Types of Query 
+1. Select query 
+2. Non Select Query
+1. Select Query 
+Any query start from select is called select query, it’s always retunes data in the form of 
+table
+
+2. Non Select Query
+Any query start from other than select is called non select query, it’s always retunes +/-
+integer data
+
+
+JDBC API: It is an API available in java.sql package, which is collection of interfaces with abstract 
+method, class, & it is database independent
+
+
+JDBC Driver: It is an implementation class of JDBC API provided by data base vendor. It is a database
+dependent.
+
+
+Why JDBC in Automation?
+In Automation also we require JDBC Connection, because in few real time scenarios we require to 
+connect to database for validation (execute test script pre-condition)

@@ -1,0 +1,42 @@
+Global Git Configuration
+
+git config --global user.name "Your Name"
+git config --global user.email "youremail@example.com"
+
+How to push a code for the first time:
+
+1. git bash in the directory you want to push
+2. Initialize a new Git repository: git init
+3. To see whether the changes are in staging or unstaging area: git status
+4. To bring the all unstagged changes to the stagging area: git add .
+5. To Commit the changes: git commit -m "Commit Message"
+6. Add the remote repository:git remote add origin https://github.com/username/repository.git
+7. To Push the changes into the remote : git push -u origin master
+
+How to push from branch:
+
+1. Check the current branch: git branch
+2. Create a new branch: git branch newBranchName
+3. Switch to the new branch:git checkout newBranchName
+4. Check for the changes in the unstaged area: git status
+5. Add all the changes in the stagging area: git add .
+6. Commit the changes : git commit -m "Commit message"
+7. Push the changes to the git hub: git push origin newBranchName
+
+How to merge any branch with master:
+
+1. Switch to master branch: git checkout master
+2. Merge "newBranch" with master in local: git merge "newBranch"
+3. Push the changes to global : git push origin master
+
+
+How to pull the code for the first time:
+
+1. Clone the global repository: git clone https://github.com/username/repository.git
+2. Navigate into the cloned repository: cd repositoryName
+3. Verify the remote repository: git remote -v
+4. Pull the latest changes:git pull
+
+
+Remove directory:
+rmdir /s /q .git

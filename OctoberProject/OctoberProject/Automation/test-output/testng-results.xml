@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-02-01T18:19:07 IST" name="Default suite" finished-at="2024-02-01T18:19:07 IST" duration-ms="48">
+    <groups>
+    </groups>
+    <test started-at="2024-02-01T18:19:07 IST" name="Default test" finished-at="2024-02-01T18:19:07 IST" duration-ms="48">
+      <class name="testng.Demo2">
+        <test-method signature="wakeUp()[pri:1, instance:testng.Demo2@76b1e9b8]" started-at="2024-02-01T18:19:07 IST" name="wakeUp" finished-at="2024-02-01T18:19:07 IST" duration-ms="6" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- wakeUp -->
+        <test-method signature="brushYourTeeth()[pri:2, instance:testng.Demo2@76b1e9b8]" started-at="2024-02-01T18:19:07 IST" name="brushYourTeeth" finished-at="2024-02-01T18:19:07 IST" depends-on-methods="testng.Demo2.wakeUp" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- brushYourTeeth -->
+        <test-method signature="breakfast()[pri:3, instance:testng.Demo2@76b1e9b8]" started-at="2024-02-01T18:19:07 IST" name="breakfast" finished-at="2024-02-01T18:19:07 IST" depends-on-methods="testng.Demo2.brushYourTeeth" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- breakfast -->
+        <test-method signature="breakfast()[pri:3, instance:testng.Demo2@76b1e9b8]" started-at="2024-02-01T18:19:07 IST" name="breakfast" finished-at="2024-02-01T18:19:07 IST" depends-on-methods="testng.Demo2.brushYourTeeth" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- breakfast -->
+        <test-method signature="office()[pri:4, instance:testng.Demo2@76b1e9b8]" started-at="2024-02-01T18:19:07 IST" name="office" finished-at="2024-02-01T18:19:07 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- office -->
+      </class> <!-- testng.Demo2 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

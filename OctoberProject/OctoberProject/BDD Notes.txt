@@ -1,0 +1,143 @@
+What is BDD?
+In simple words, Behavior-Driven Development (BDD) is an approach to software development that focuses on the behavior of the system from the user's perspective. It encourages collaboration among different team members, including developers, testers, and non-technical stakeholders.
+
+In BDD, the desired behavior of a software feature is described in plain language, often using a format called Gherkin. This description is then used to create automated tests that verify whether the software behaves as expected. The process involves writing scenarios in a structured manner, using keywords like Given, When, and Then to outline the preconditions, actions, and expected outcomes.
+
+Advantages of BDD:
+1. Improve Communication: By using a common language, team members can better understand and discuss the desired behavior of features.
+  
+2. Enhance Collaboration: BDD involves everyone in the development process, fostering collaboration between developers, testers, and business stakeholders.
+
+3. Create Living Documentation: BDD scenarios serve as living documentation, providing an up-to-date and easily understandable representation of the system's behavior.
+
+4. Ensure Quality: Automated tests derived from BDD scenarios help ensure that the software meets the specified requirements and continues to do so as it evolves.
+
+In essence, BDD is about making sure that everyone involved in the development process understands what needs to be built, how it should behave, and whether it meets the expectations of the end users.
+
+Gherkins Language:
+
+Gherkin is like a special language we use to explain how our computer programs should behave. It's designed to be easy for both regular folks (who may not know much about coding) and tech-savvy people to understand.
+
+In Gherkin, we write down the steps that our software should take in a straightforward way. We use words like "Given" to describe the starting point, "When" for what action we're taking, and "Then" to say what we expect to happen.
+
+Example:
+Feature: Shopping Cart
+
+  Scenario: Adding Items
+    Given the user has an empty shopping cart
+    When the user adds a book to the cart
+    Then the cart should contain one book
+
+In this example, we're talking about a shopping cart in an online store. The scenario says that when the cart is empty, and the user adds a book, the cart should now have one book. It's a simple way to explain what we want the computer to do.
+
+This Gherkin language helps people work together, whether they're coding experts or just regular users, by providing a clear and common way to talk about how the software should behave.
+
+What is a feature file in BDD?
+A feature file is a plain-text document written in the Gherkin language. It describes the expected behavior of a specific feature in a software application. Each feature file typically contains scenarios that outline different situations or use cases. These files are an essential part of Behavior-Driven Development (BDD) and are used with tools like Cucumber to create automated tests. Feature files promote collaboration among team members, ensuring a shared understanding of how the software should behave from both technical and non-technical perspectives.
+
+What is a Step Definition?
+A step definition is the code implementation that corresponds to each step in a Gherkin feature file. It provides the executable instructions for Cucumber to follow when it encounters specific actions or verifications described in a scenario. These step definitions are written in a programming language and are linked to the Gherkin steps using annotations, such as @Given, @When, and @Then. Step definitions bridge the gap between the human-readable scenarios and the actual code that tests the behavior of the software, allowing for collaboration between non-technical and technical team members."
+
+What is a Runner Class?
+In the context of BDD with Cucumber and JUnit, a "Runner Class" is a class that orchestrates the execution of Cucumber scenarios. It essentially acts as a bridge between the Cucumber features and the step definitions, ensuring that the appropriate steps are executed for each scenario.
+
+Sample Runner class:
+===================
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+    features = "src/test/resources/features",
+    glue = "stepDefinition",
+    tags = "@smoke", // You can use tags to specify which scenarios to run
+    plugin = {"pretty", "html:target/cucumber-html-report", "json:target/cucumber-json-report.json"}
+)
+public class TestRunner {
+
+}
+
+What are hooks?
+hooks in the context of Cucumber (BDD) are special methods or functions that allow you to perform setup and teardown activities before and after scenarios. They provide a way to execute code at specific points in the test execution lifecycle.
+
+@Before
+	public void setUp() {
+			
+		System.out.println("Pre Condition");
+	}
+
+	@After
+	public void tearDown() {
+		
+		System.out.println("Post Condition");
+
+	}
+
+
+
+How to Generate Reports?
+
+"To generate reports in BDD, we need to include plugins in the Test Runner Class. In the Test Runner Class, within the `@CucumberOptions` annotation, the `plugin` parameter should be added to specify the desired reporting options. To achieve this, you can set the `plugin` parameter to include a 'pretty' console output and define the type of report format, such as HTML, JSON, or XML, that you want to generate. Additionally, specify the file path where the report will be generated.
+
+For example:
+
+@CucumberOptions(features = "src/test/resources/features", glue = "com.example.steps", plugin = {"pretty", "html:target/cucumber-reports"})
+public class TestRunner {
+
+}
+
+
+In this example, the `plugin` parameter is configured to produce both a 'pretty' console output and an HTML report. The HTML report will be generated in the 'target/cucumber-reports' directory. You can customize the plugins and report formats based on your reporting requirements."
+
+How to take a screenhsot in BDD?
+
+To take screen shot we can use the @After annotation of cucumber library provide implementation to take screenshot through selenium library.
+
+@After
+	public void getScreenShot(Scenario scenario) throws WebDriverException, IOException {
+		String name = scenario.getName();
+
+		if (scenario.isFailed()) {
+			WebDriverUtility.takeAScreenShot(TestRunnerSmoke.driver,
+					"./src/test/resources/screenshots/" + name + ".png");
+		}
+
+	}
+
+
+
+Dependencies used for BDD:
+
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-java</artifactId>
+    <version>7.14.0</version>
+</dependency>
+   <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>5.10.0</version>
+    <scope>project</scope>
+</dependency>
+   <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-junit</artifactId>
+    <version>7.14.0</version>
+    <scope>project</scope>
+</dependency>
+  <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.13.0</version>
+</dependency>
+
+
+
+
+
+=========================================End===================================
